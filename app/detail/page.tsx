@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
+import namer from "korean-name-generator";
 
 export default function detail() {
+  const generate = () => {};
+
+  const male = namer.generate(true);
+
+  console.log(male, "male");
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-12">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">

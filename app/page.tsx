@@ -9,20 +9,41 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useCallback, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 
 export default function Home() {
-  const [gender, setGender] = useState(false);
+  const [gender, setGender] = useState("man");
+  const [count, setCount] = useState(1);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  const setQueryParams = (params: { gender: string; count: string }) => {
+    const urlSearchParams = new URLSearchParams(searchParams);
+    Object.entries(params).forEach(([name, value]) => {
+      urlSearchParams.set(name, value);
+    });
+
+    return urlSearchParams.toString();
+  };
 
   const handleGenderChange = (value: string) => {
-    value === "man" ? setGender(true) : false;
+    setGender(value);
   };
 
   const onCreateCharacter = () => {
-    router.push("/detail");
+    const params = {
+      gender: gender,
+      count: count.toString(),
+    };
+    const qs = setQueryParams(params);
+
+    console.log(qs, "qs");
+    console.log(pathname, "path");
+
+    router.push(`${pathname}?${qs}`);
   };
 
   return (
@@ -53,6 +74,8 @@ export default function Home() {
       <Input
         type="number"
         className="max-w-48"
+        value={count}
+        onChange={(e) => setCount(e.target.valueAsNumber)}
         placeholder="개수를 입력해주세요."
       />
 
