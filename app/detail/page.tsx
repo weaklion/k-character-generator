@@ -20,9 +20,9 @@ export default async function detail({
     }
   }
 
-  console.log(names, "names");
   const text = await getData(names, gender);
-  const characters = text ? JSON.parse(text) : [];
+  const result = text ? JSON.parse(text) : [];
+  console.log(result, "names");
 
-  return <Client characters={characters} />;
+  return <Client characters={result.characters} />;
 }

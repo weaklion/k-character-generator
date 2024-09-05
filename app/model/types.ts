@@ -1,9 +1,8 @@
-export interface Character {
+interface Character {
   name: string;
-  age: string;
+  age: number;
   gender: string;
   appearance: string;
   background: string;
   occupation: string;
-  name_ko: string;
 }
