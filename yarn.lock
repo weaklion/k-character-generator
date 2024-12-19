@@ -2008,11 +2008,6 @@ keyv@^4.5.3:
   dependencies:
     json-buffer "3.0.1"
 
-korean-name-generator@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/korean-name-generator/-/korean-name-generator-1.0.4.tgz#3617486284424557efaec26f2a6a671fa5a2d2d9"
-  integrity sha512-iIxlar4KRYg+wVsfDs6HIrAD8Z4UkCPtIzINckNXzE4paABXYDZQx4GeTA4YxU6zHxD9d+WLS7NdykqzKj/8Xw==
-
 language-subtag-registry@^0.3.20:
   version "0.3.23"
   resolved "https://registry.yarnpkg.com/language-subtag-registry/-/language-subtag-registry-0.3.23.tgz#23529e04d9e3b74679d70142df3fd2eb6ec572e7"
@@ -2677,6 +2672,7 @@ streamsearch@^1.1.0:
   integrity sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==

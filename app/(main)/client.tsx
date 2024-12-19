@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Suspense, useCallback, useState } from "react";
+import { useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import Loader from "@/components/loader";
@@ -44,9 +44,6 @@ export default function Home() {
       count: count.toString(),
     };
     const qs = setQueryParams(params);
-
-    console.log(qs, "qs");
-    console.log(pathname, "path");
     setLoading(true);
     router.push(`/detail?${qs}`);
   };

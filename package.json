@@ -16,7 +16,6 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "embla-carousel-react": "^8.2.0",
-    "korean-name-generator": "^1.0.4",
     "lucide-react": "^0.419.0",
     "next": "14.2.5",
     "react": "^18",

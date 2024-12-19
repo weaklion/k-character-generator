@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import namer from "korean-name-generator";
 import { getData } from "./action";
 import Client from "./client";
+import { Suspense } from "react";
+import Loader from "@/components/loader";
 
 export default async function detail({
   searchParams,
@@ -10,19 +11,12 @@ export default async function detail({
 }) {
   const count = searchParams?.count;
   const gender = searchParams?.gender;
-  const names: string[] = [];
-
-  if (searchParams) {
-    for (let i = 0; i < count; i++) {
-      gender === "man"
-        ? names.push(namer.generate(true))
-        : names.push(namer.generate(false));
-    }
-  }
-
-  const text = await getData(names, gender);
+  const text = await getData(count, gender);
   const result = text ? JSON.parse(text) : [];
-  console.log(result, "names");
 
-  return <Client characters={result.characters} />;
+  return (
+    <Suspense fallback={<Loader />}>
+      <Client characters={result.characters} />
+    </Suspense>
+  );
 }
