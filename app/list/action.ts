@@ -50,7 +50,7 @@ export async function getData(count: number, gender: string) {
   }
 }
 
-export async function getDetail(name: string) {
+export async function getList(name: string) {
   try {
     const result = await model.generateContent(
       `앞서 생성된 캐릭터 중 ${name}의 상세한 배경을 제공해주세요. 다음 요소들을 포함하여 자세히 설명해주세요:

@@ -45,7 +45,7 @@ export default function Home() {
     };
     const qs = setQueryParams(params);
     setLoading(true);
-    router.push(`/detail?${qs}`);
+    router.push(`/list?${qs}`);
   };
 
   return (
@@ -97,3 +97,5 @@ export default function Home() {
     </main>
   );
 }
+// stablediffusion 에 huggingface로 해보자
+자;

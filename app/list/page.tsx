@@ -4,7 +4,7 @@ import Client from "./client";
 import { Suspense } from "react";
 import Loader from "@/components/loader";
 
-export default async function detail({
+export default async function list({
   searchParams,
 }: {
   searchParams: { count: number; gender: "man" | "women" };

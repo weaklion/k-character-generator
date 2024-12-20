@@ -9,14 +9,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { getDetail } from "./action";
+import { getList } from "./action";
+import { useRouter } from "next/navigation";
 
 export default function Client({ characters }: { characters: Character[] }) {
-  const onclickDetail = async (name: string, index: number) => {
-    const text = await getDetail(name);
-    const result = text ? JSON.parse(text) : "";
-    console.log(result, "background");
-    // characters[index].background = background;
+  const router = useRouter();
+
+  const onClickDetail = async (name: string, index: number) => {
+    router.push(`/list/${name}`);
   };
 
   return (
@@ -47,7 +47,7 @@ export default function Client({ characters }: { characters: Character[] }) {
               <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
                 배경 : {character.background}
                 <Button
-                  onClick={() => onclickDetail(character.name, index)}
+                  onClick={() => onClickDetail(character.name, index)}
                   className="mt-2"
                 >
                   배경 상세 생성
@@ -63,7 +63,7 @@ export default function Client({ characters }: { characters: Character[] }) {
       {/* 복사해서 텍스트로 붙이는 것도 넣자. */}
       {/* 배경 어떻게 보여줄지 생각해보기 */}
       {/* 글로벌로 해서 i18n 넣자. */}
-      {/* 퍼리 캐릭터도 넣어보자. */}
+      {/* 퍼리 캐릭터 제너레이터도 만들어어보자. */}
       {/* ai로 받은 이름 데이터들을 저장해서 이름의 정확도를 높히는 방법을 찾아보자. */}
       {/* 일단 현재는 gemini ai를 통해 결과 값을 도출할 예정. 추후 하드 코딩을 통해 결과를 도출해보자. */}
     </main>
