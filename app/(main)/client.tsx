@@ -97,5 +97,3 @@ export default function Home() {
     </main>
   );
 }
-// stablediffusion 에 huggingface로 해보자
-자;
