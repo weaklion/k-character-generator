@@ -13,14 +13,14 @@ const model = generativeAI.getGenerativeModel({
 export async function getData(count: number, gender: string) {
   try {
     const result = await model.generateContent(
-      `웹소설에 나오는 가상의 한국인 캐릭터들을 만들어주세요. 성별이 ${gender}인 ${count}명의 임의의 캐릭터를 생성하여 characters 배열에 넣고 JSON 형식으로 출력해주세요. 각 캐릭터는 다음 속성을 가져야 합니다:
+      `웹소설에 등장하는 가상의 한국인 캐릭터들을 생성해주세요. 성별이 **반드시** ${gender}인 ${count}명의 캐릭터를 생성하여 characters 배열에 넣고 JSON 형식으로 출력해주세요. 각 캐릭터는 다음 속성을 가져야 합니다.
 
-- name: 한국인 이름 (문자열)
-- age: 나이 (문자열, 예: "25세")
-- gender: 성별 (문자열, "남성" 또는 "여성")
-- appearance: 외형적 특징을 간단히 설명 (문자열)
-- background: 캐릭터의 간단한 배경 설명 (문자열)
-- occupation: 직업 (문자열)
+- name: 무작위로 선택한 한국인 이름 (문자열)
+- age: 나이 (문자열, 예: "25세") (다양한 나이대를 섞어서 무작위로 선택)
+- gender: 성별 (문자열, **반드시** "${gender}"로 지정)
+- appearance: 외형적 특징을 **상세하게** 설명합니다. 눈 색깔, 머리 스타일, 키, 체형, 옷 스타일 등을 포함하여 구체적으로 묘사 (문자열). (각 캐릭터마다 다른 특징을 갖도록 무작위로 선택)
+- background: 캐릭터의 간단한 배경 설명을 구체적으로 작성합니다. 성장 환경, 가족 관계, 특별한 경험 등을 포함하여 각 캐릭터마다 고유한 스토리를 부여 (문자열).
+- occupation: 직업 (문자열). (다양한 직업을 무작위로 선택)
 
 출력 형식:
 {
@@ -37,7 +37,7 @@ export async function getData(count: number, gender: string) {
   ]
 }
 
-각 필드에 대해 구체적이고 다양한 설명을 제공해주세요. 캐릭터들은 서로 다른 특징과 배경을 가져야 합니다.`
+각 필드에 대해 구체적이고 다양한 설명을 제공해주세요. 캐릭터들은 서로 다른 특징과 배경을 가져야 하며, 성별은 반드시 프롬프트에 지정된 ${gender}로 생성되어야 합니다. 각 캐릭터는 다른 나이, 직업을 갖도록 해주세요.`
     );
     const response = await result.response;
     const text = await response.text();

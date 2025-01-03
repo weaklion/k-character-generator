@@ -28,7 +28,7 @@ export default function Client({
         주요 삶의 경험이나 전환점 : {detail.detailedBackground.lifeExperiences}
       </h3>
       <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-        현재 상황에 이르게 된 과정 :{" "}
+        현재 상황에 이르게 된 과정 :
         {detail.detailedBackground.pathToCurrentSituation}
       </h3>
       <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
